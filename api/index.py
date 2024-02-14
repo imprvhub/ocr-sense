@@ -1,18 +1,8 @@
 from flask import Flask, render_template, request, redirect
-import pytesseract
-from PIL import Image
-import os
 import PyPDF2
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('PRODUCTION_KEY')
 
-def ocr_with_tesseract(image):
-    text = pytesseract.image_to_string(image)
-    return text
 
 @app.route('/')
 def index():
@@ -20,19 +10,15 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    if 'image' not in request.files:
+    if 'pdf' not in request.files:
         return redirect(request.url)
 
-    files = request.files.getlist('image')
+    files = request.files.getlist('pdf')
     detected_texts = []
 
     for file in files:
         if file.filename == '':
             continue
-        if file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-            image = Image.open(file)
-            text = ocr_with_tesseract(image)
-            detected_texts.append({'paragraphs': [text]})
         elif file.filename.lower().endswith('.pdf'):
             text = ocr_pdf(file)
             detected_texts.append({'paragraphs': [text]})

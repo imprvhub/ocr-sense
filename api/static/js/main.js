@@ -20,7 +20,7 @@ function handleDrop(event) {
 
   window.addEventListener('DOMContentLoaded', () => {
     const dropArea = document.querySelector('.upload-container');
-    const fileInput = document.querySelector('#image-input1');
+    const fileInput = document.querySelector('#pdf-input');
 
     dropArea.addEventListener('dragover', (e) => {
         e.preventDefault();

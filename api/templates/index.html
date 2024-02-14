@@ -24,14 +24,14 @@
         <form class="glass-panel" style="padding: 20px;" action="/upload" method="post" enctype="multipart/form-data">
             <img class="form-img" src="{{ url_for('static', filename='images/utilities/drag-drop.webp') }}" alt="dragdrop"/>
             <div class="upload-container">
-                <label for="image-input1" class="glass-button">
+                <label for="pdf-input" class="glass-button">
                     <svg fill="#FFF" height="13" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
                     </svg>
                     <span class="ml-2">Select File</span>
                 </label>
-                <input class="hidden-input" type="file" name="image" id="image-input1" accept=".jpg, .jpeg, .png, .pdf" onchange="updateFileName(this)" />
+                <input class="hidden-input" type="file" name="pdf" id="pdf-input" accept=".pdf" onchange="updateFileName(this)" />
             </div>    
             <div class="file-name-style" id="file-name-container"></div>
             <button class="glass-button mt-4" style="color:white"; type="submit">Extract Text</button>
