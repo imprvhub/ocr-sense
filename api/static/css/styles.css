@@ -10,41 +10,52 @@ body {
   background-color: #ffffff;
 }
 
+.form-img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    width: 234px;
+    height: 87px;
+}
+
 .heading-4 {
 font-size: 12px;
-color: rgba(255, 255, 255, 0.8);
+color: rgba(0, 0, 0, 0.8);
 letter-spacing: 2px;
 text-transform: uppercase;
 }
 
 .paragraph {
 font-size: 10px;
-color: rgba(255, 255, 255, 0.8);
+color: rgba(0, 0, 0, 0.8);
 letter-spacing: 2px;
 text-transform: uppercase;
 }
 
 .paragraph-2 {
 font-size: 10px;
-color: rgba(255, 255, 255, 0.8);
+color: rgba(0, 0, 0, 0.8);
 letter-spacing: 2px;
 }
 
 .file-name-style {
 font-size: 10px; 
-color: rgba(255, 255, 255, 0.6); 
+color: rgba(0, 0, 0, 0.6); 
 margin-top: 5px;
 }
 
 .logo-style {
 width: 40px; 
 height: 40px; 
-margin-right: 10px; 
+margin-left: 10px; 
 }
 
 .h4-form {
 font-size: 12px;
-color: rgba(255, 255, 255, 0.8); 
+color: rgba(0, 0, 0, 0.8); 
 letter-spacing: 2px; 
 text-transform: uppercase;
 }
@@ -62,28 +73,29 @@ border: 0;
 
 .hr-results {
 font-size: 10px; 
-color: white;
+color: rgb(0, 0, 0);
 }
 
 .detected-results-p {
 font-size: 10px; 
-color: white;
+color: rgb(0, 0, 0);
 }
 
 .h3-index {
 text-decoration: none; 
 color: inherit;
+margin-left: 10px;
 }
 
 .h4-detected-results {
 font-size: 12px; 
-color: rgba(255, 255, 255, 0.8); 
+color: rgba(0, 0, 0, 0.8); 
 text-transform: uppercase;
 }
 
 .detected-results {
 background: transparent;
-color: white;
+color: rgb(0, 0, 0);
 border: none;
 padding: 10px;
 position: fixed;
@@ -100,7 +112,7 @@ margin-top: 4rem;
 .header-result {
 background: transparent;
 border: none;
-color: white;
+color: rgb(0, 0, 0);
 text-align: center;
 padding: 5px;
 position: fixed;
@@ -118,7 +130,7 @@ align-items: center;
 .footer-panel {
 background: transparent;
 font-size: 12px;
-color: white;
+color: rgb(0, 0, 0);
 border: none;
 text-align: center;
 padding: 10px;
@@ -141,6 +153,15 @@ margin: -1px;
 overflow: hidden;
 clip: rect(0, 0, 0, 0);
 border: 0;
+}
+
+.results-style {
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+
 }
 
 .outer-container {
@@ -177,12 +198,12 @@ margin-bottom: 5px;
 p {
 font-size: 14px;
 line-height: 1.5;
-color: #ffffff;
+color: #000000;
 }
 
 hr {
 border: 0;
-border-top: 1px solid #ddd;
+border-top: 1px solid #000000;
 margin: 20px 0;
 }
 
@@ -208,21 +229,24 @@ input {
   margin-bottom: 10px;
   box-sizing: border-box;
   background-color: transparent; 
-  border: 2.5px solid rgba(255, 255, 255, 0.8);
+  border: 2.5px solid rgba(0, 0, 0, 0.8);
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   letter-spacing: 2px; 
   text-transform: uppercase;
 }
 
 
 .glass-panel {
-  color: #fff;
+  color: #000000; 
   margin: 40px auto;
   width: 100%;
   border-radius: 15px;
-  padding: 5px;    
+  padding: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
+
 
 .glass-button {
   display: inline-block;
@@ -230,14 +254,18 @@ input {
   margin-bottom: 15px;
   text-decoration: none;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0);
   backdrop-filter: blur(30px);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   font-size: 14px;
   letter-spacing: 2px;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.glass-button span{
+  color: white;
 }
 
 .result-container p {
@@ -247,12 +275,8 @@ input {
   text-transform: uppercase;
 }
 
-.glass-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 body {
-  background: linear-gradient(to right, #07c117, #ac00b8); 
+  background: linear-gradient(to right, #ffffff, #ffffff); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -281,7 +305,7 @@ h2 a {
   margin: 0 auto;
   text-decoration: none;
   padding-top: 60px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   letter-spacing: 2px; 
   text-transform: uppercase;
 }
@@ -306,17 +330,18 @@ p {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 32px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 
 .result-container {
   text-align: center;
   margin-top: 20px;
-  background-color: transparent; 
+  background-color: transparent;
   padding: 15px;
-  border-radius: 12px; 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .button-container {

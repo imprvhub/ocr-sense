@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Sense - A Python Web App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/logos/logo192.png') }}">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='images/logos/logo180.png') }}">
 </head>
@@ -17,25 +17,23 @@
             <a class="h3-index" href="/" rel="noopener noreferrer">
                 <h3>OCR Sense</h3>
             </a>
-            <br>
-            <br>
         </div>        
     </header>
     <br> 
         <form class="glass-panel" style="padding: 20px;" action="/upload" method="post" enctype="multipart/form-data">
-            <h4 class="h4-form">Text Detection from image:</h4>
+            <img class="form-img" src="{{ url_for('static', filename='images/utilities/drag-drop.webp') }}" alt="dragdrop"/>
             <div class="upload-container">
                 <label for="image-input1" class="glass-button">
-                    <svg fill="#FFF" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                    <svg fill="#FFF" height="13" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
                     </svg>
-                    <span class="ml-2">Upload Image</span>
+                    <span class="ml-2">Select File</span>
                 </label>
                 <input class="hidden-input" type="file" name="image" id="image-input1" accept=".jpg, .jpeg, .png" onchange="updateFileName(this)" />
             </div>    
             <div class="file-name-style" id="file-name-container"></div>
-            <button class="glass-button mt-4" type="submit">Submit</button>
+            <button class="glass-button mt-4" style="color:white"; type="submit">Extract Text</button>
         </form>
         <br>
         <br>
@@ -43,7 +41,7 @@
             <div class="result-footer-container">  
                 <div class="footer-panel">
                     <div>
-                        <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: white;">
+                        <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: rgb(0, 0, 0);">
                             User Agreements - Terms - Privacy Policies.
                         </a>
                     </div>
@@ -66,12 +64,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                function updateFileName(input) {
-                    const fileNameContainer = document.getElementById('file-name-container');
-                    const fileName = input.files[0].name;
-                    fileNameContainer.textContent = `Selected file: ${fileName}`;
-                }
-            </script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

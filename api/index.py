@@ -23,16 +23,13 @@ def upload():
         return redirect(request.url)
 
     files = request.files.getlist('image')
-
     detected_texts = []
 
     for file in files:
         if file.filename == '':
             continue
-
         image = Image.open(file)
         text = ocr_with_tesseract(image)
-
         detected_texts.append({'paragraphs': [text]})
 
     return render_template('result.html', detected_texts=detected_texts)
@@ -42,4 +39,4 @@ def user_agreements():
     return render_template('user_agreements.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)

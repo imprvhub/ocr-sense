@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Sense - Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/logos/logo192.png') }}">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='images/logos/logo180.png') }}">
+    
 </head>
 <body>
     <header class="header-result glass-panel">
@@ -22,7 +23,7 @@
         </div>        
     </header>
     <br>        
-    <div class="detected-results">
+    <div class="results-style detected-results">
             <h4 class="h4-detected-results">Detected Text:</h4>
             <div class="outer-container"></div>
                 <div class="content">

@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Sense - User Agreements / Terms / Privacy Policies.</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/logos/logo192.png') }}">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='images/logos/logo180.png') }}">
 </head>
 <body>
     <header class="glass-panel" style="
         background: transparent;
-        color: white;
+        color: black;
         border: none;
-        
         text-align: center;
         padding: 5px;
         position: fixed;
@@ -42,7 +41,7 @@
         text-align: center;
         padding: 10px;
         position: fixed;
-        top: 60px; 
+        top: 90px; 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -95,10 +94,10 @@
         <br>
         <br>
         <br>
-        <div class="result-footer-container">  
-            <div class="footer-panel">
+    <div class="result-footer-container">  
+            <div class="footer-panel" style="bottom: -20px;">
                 <div>
-                <a href="/" class="home-link" rel="noopener noreferrer" style="color: white;">
+                <a href="/" class="home-link" rel="noopener noreferrer" style="color: black;">
                     Home
                 </a>
             </div>
@@ -119,7 +118,7 @@
                     <img class="linkedin-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn"/>
                 </a>
             </div>
-        </div>
+    </div>
 </body>
 </html>
 
