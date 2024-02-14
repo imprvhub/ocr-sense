@@ -1,26 +1,17 @@
 from flask import Flask, render_template, request, redirect
 import pytesseract
 from PIL import Image
-import nltk
+import os
+from dotenv import load_dotenv
 
-nltk.download('punkt')
-
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.getenv('PRODUCTION_KEY')
 
-def detect_titles_and_paragraphs(text):
-    lines = text.split('\n')
-    titles = []
-    paragraphs = []
-
-    for line in lines:
-        if line.isupper() and line.endswith('.'):
-            titles.append(line)
-        else:
-            paragraphs.append(line)
-
-    return titles, paragraphs
-
+def ocr_with_tesseract(image):
+    text = pytesseract.image_to_string(image)
+    return text
 
 @app.route('/')
 def index():
@@ -40,10 +31,9 @@ def upload():
             continue
 
         image = Image.open(file)
-        text = pytesseract.image_to_string(image)
+        text = ocr_with_tesseract(image)
 
-        titles, paragraphs = detect_titles_and_paragraphs(text)
-        detected_texts.append({'titles': titles, 'paragraphs': paragraphs})
+        detected_texts.append({'paragraphs': [text]})
 
     return render_template('result.html', detected_texts=detected_texts)
 

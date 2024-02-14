@@ -8,44 +8,22 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/logos/logo192.png') }}">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='images/logos/logo180.png') }}">
 </head>
-<style>
-    .hidden-input {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-    }
-</style>
-
-
 <body>
-    <header class="glass-panel" style="
-        background: transparent;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    ">
-        <div style="display: flex; align-items: center;">
+    <header class="header-result glass-panel">
+        <div class="header-result-container">
             <a href="/" class="logo-link" rel="noopener noreferrer">
-                <img src="{{ url_for('static', filename='images/logos/logo512.png') }}" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;" />
+                <img class="logo-style" src="{{ url_for('static', filename='images/logos/logo512.png') }}" alt="Logo"/>
             </a>
-            <a href="/" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
+            <a class="h3-index" href="/" rel="noopener noreferrer">
                 <h3>OCR Sense</h3>
             </a>
-        </div>
-        
+            <br>
+            <br>
+        </div>        
     </header>
-        <form class="glass-panel" action="/upload" method="post" enctype="multipart/form-data">
-            <h4 style="font-size: 12px; color: rgba(255, 255, 255, 0.8); letter-spacing: 2px; text-transform: uppercase;">Text Detection from image:</h4>
+    <br> 
+        <form class="glass-panel" style="padding: 20px;" action="/upload" method="post" enctype="multipart/form-data">
+            <h4 class="h4-form">Text Detection from image:</h4>
             <div class="upload-container">
                 <label for="image-input1" class="glass-button">
                     <svg fill="#FFF" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
@@ -54,45 +32,46 @@
                     </svg>
                     <span class="ml-2">Upload Image</span>
                 </label>
-                <input class="hidden-input" type="file" name="image" id="image-input1" accept=".jpg, .jpeg, .png" />
-            </div>
+                <input class="hidden-input" type="file" name="image" id="image-input1" accept=".jpg, .jpeg, .png" onchange="updateFileName(this)" />
+            </div>    
+            <div class="file-name-style" id="file-name-container"></div>
             <button class="glass-button mt-4" type="submit">Submit</button>
         </form>
         <br>
         <br>
         <br>
-        </div>
-            <div class="glass-panel" style="
-                background: transparent;
-                color: white;
-                text-align: center;
-                padding: 10px;
-                position: fixed;
-                bottom: 0;
-            ">
-                <div>
-                    <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: white;">
-                        User Agreements - Terms - Privacy Policies.
-                    </a>
-                    
-                </div>
-                <br>
-                <div>
-                    © 2024 Iván Luna. Software Developer.
-                </div>
-                <div style="display: flex; justify-content: center; margin-top: 10px;">
-                    <a href="https://ivanluna.dev" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/icons/ivanlunadev.png') }}" alt="Ivan Luna Dev" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 25%;" />
-                    </a>
-                    
-                    <a href="https://github.com/imprvhub" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_github-square.png') }}" alt="GitHub" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 25%;" />
-                    </a>
-                    
-                    <a href="https://linkedin.com/in/ivanluna-dev" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn" style="width: 40px; height: 40px; border-radius: 25%;" />
-                    </a>
+            <div class="result-footer-container">  
+                <div class="footer-panel">
+                    <div>
+                        <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: white;">
+                            User Agreements - Terms - Privacy Policies.
+                        </a>
+                    </div>
+                    <br>
+                    <div>
+                        © 2024 Iván Luna. Software Developer.
+                    </div>
+                    <div class="socials-container">
+                        <a href="https://ivanluna.dev" target="_blank" rel="noopener noreferrer">
+                            <img class="ivanlunadev-social" src="{{ url_for('static', filename='images/icons/ivanlunadev.png') }}" alt="Ivan Luna Dev"/>
+                        </a>
+                        
+                        <a href="https://github.com/imprvhub" target="_blank" rel="noopener noreferrer">
+                            <img class="github-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_github-square.png') }}" alt="GitHub"/>
+                        </a>
+                        
+                        <a href="https://linkedin.com/in/ivanluna-dev" target="_blank" rel="noopener noreferrer">
+                            <img class="linkedin-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn"/>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <script>
+                function updateFileName(input) {
+                    const fileNameContainer = document.getElementById('file-name-container');
+                    const fileName = input.files[0].name;
+                    fileNameContainer.textContent = `Selected file: ${fileName}`;
+                }
+            </script>
 </body>
 </html>
