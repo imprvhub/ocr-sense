@@ -21,49 +21,51 @@
         </div>        
     </header>
     <br> 
-        <form class="glass-panel" style="padding: 20px;" action="/upload" method="post" enctype="multipart/form-data">
-            <img class="form-img" src="{{ url_for('static', filename='images/utilities/drag-drop.webp') }}" alt="dragdrop"/>
-            <div class="upload-container">
-                <label for="pdf-input" class="glass-button">
-                    <svg fill="#FFF" height="13" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none" />
-                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-                    </svg>
-                    <span class="ml-2">Select File</span>
-                </label>
-                <input class="hidden-input" type="file" name="pdf" id="pdf-input" accept=".pdf" onchange="updateFileName(this)" />
-            </div>    
-            <div class="file-name-style" id="file-name-container"></div>
-            <button class="glass-button mt-4" style="color:white"; type="submit">Extract Text</button>
-        </form>
+    <form id="upload-form" class="glass-panel" style="padding: 20px;" action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateFileSize()">
+        <img class="form-img" src="{{ url_for('static', filename='images/utilities/drag-drop.webp') }}" alt="dragdrop"/>
+        <div class="upload-container">
+            <label for="pdf-input" class="glass-button">
+                <svg fill="#FFF" height="13" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                </svg>
+                <span class="ml-2">Select File</span>
+            </label>
+            <input class="hidden-input" type="file" name="pdf" id="pdf-input" accept=".pdf" onchange="updateFileName(this)" />
+        </div>    
+        <div class="file-name-style" id="file-name-container"></div>
         <br>
-        <br>
-        <br>
-            <div class="result-footer-container">  
-                <div class="footer-panel">
-                    <div>
-                        <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: rgb(0, 0, 0);">
-                            User Agreements - Terms - Privacy Policies.
-                        </a>
-                    </div>
-                    <br>
-                    <div>
-                        © 2024 Iván Luna. Software Developer.
-                    </div>
-                    <div class="socials-container">
-                        <a href="https://ivanluna.dev" target="_blank" rel="noopener noreferrer">
-                            <img class="ivanlunadev-social" src="{{ url_for('static', filename='images/icons/ivanlunadev.png') }}" alt="Ivan Luna Dev"/>
-                        </a>
-                        
-                        <a href="https://github.com/imprvhub" target="_blank" rel="noopener noreferrer">
-                            <img class="github-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_github-square.png') }}" alt="GitHub"/>
-                        </a>
-                        
-                        <a href="https://linkedin.com/in/ivanluna-dev" target="_blank" rel="noopener noreferrer">
-                            <img class="linkedin-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn"/>
-                        </a>
-                    </div>
-                </div>
+        <div id="file-size-error" class="error-message" style="display: none;">File size exceeded: 1MB (max)</div>
+        <button class="glass-button mt-4" style="color:white"; type="submit">Extract Text</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <div class="result-footer-container">  
+        <div class="footer-panel">
+            <div>
+                <a href="{{ url_for('user_agreements') }}" class="user-agreements-link" rel="noopener noreferrer" style="color: rgb(0, 0, 0);">
+                    User Agreements - Terms - Privacy Policies.
+                </a>
             </div>
+            <br>
+            <div>
+                © 2024 Iván Luna. Software Developer.
+            </div>
+            <div class="socials-container">
+                <a href="https://ivanluna.dev" target="_blank" rel="noopener noreferrer">
+                    <img class="ivanlunadev-social" src="{{ url_for('static', filename='images/icons/ivanlunadev.png') }}" alt="Ivan Luna Dev"/>
+                </a>
+                
+                <a href="https://github.com/imprvhub" target="_blank" rel="noopener noreferrer">
+                    <img class="github-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_github-square.png') }}" alt="GitHub"/>
+                </a>
+                
+                <a href="https://linkedin.com/in/ivanluna-dev" target="_blank" rel="noopener noreferrer">
+                    <img class="linkedin-social" src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn"/>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

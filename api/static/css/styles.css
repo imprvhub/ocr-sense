@@ -195,6 +195,11 @@ pointer-events: none;
 margin-bottom: 5px;
 }
 
+.error-message {
+  color: red;
+  font-size: 10px;
+}
+
 p {
 font-size: 14px;
 line-height: 1.5;

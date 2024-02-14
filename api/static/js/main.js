@@ -19,7 +19,7 @@ function handleDrop(event) {
 
 
   window.addEventListener('DOMContentLoaded', () => {
-    const dropArea = document.querySelector('.upload-container');
+    const dropArea = document.querySelector('#upload-form');
     const fileInput = document.querySelector('#pdf-input');
 
     dropArea.addEventListener('dragover', (e) => {
@@ -48,4 +48,19 @@ function updateFileName(input) {
     const fileNameContainer = document.getElementById('file-name-container');
     const fileName = input.files[0].name;
     fileNameContainer.textContent = `File: ${fileName}`;
+}
+
+
+function validateFileSize() {
+    var input = document.getElementById('pdf-input');
+    var fileSize = input.files[0].size;
+    var maxSize = 1024 * 1024; // 1MB
+
+    if (fileSize > maxSize) {
+        document.getElementById('file-size-error').style.display = 'block';
+        return false; // Evitar el envío del formulario si el tamaño excede el límite
+    } else {
+        document.getElementById('file-size-error').style.display = 'none';
+        return true; // Permite el envío del formulario si el tamaño está dentro del límite
+    }
 }
