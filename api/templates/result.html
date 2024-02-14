@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Sense - A Python Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='images/logos/logo192.png') }}">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='images/logos/logo180.png') }}">
+</head>
+<body>
+    <header class="glass-panel" style="
+        background: transparent;
+        border: none;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    ">
+        <div style="display: flex; align-items: center;">
+            <a href="/" class="logo-link" rel="noopener noreferrer">
+                <img src="{{ url_for('static', filename='images/logos/logo512.png') }}" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;" />
+            </a>
+            <a href="/" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
+                <h3>OCR Sense</h3>
+            </a>
+            <br>
+            <br>
+        </div>
+        
+    </header>
+    <br>
+    <br>
+    <div class="glass-panel" style="
+        background: transparent;
+        color: white;
+        border: none;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        top: 60px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 600px;
+        overflow-y: auto; 
+    ">
+            <h4 style="font-size: 12px; color: rgba(255, 255, 255, 0.8); letter-spacing: 2px; text-transform: uppercase;">Results:</h4>
+            <div class="content">
+                {% for text in detected_texts %}
+                    <div class="detected-text">
+                        <h3 style="font-size: 16px; color: white; margin-bottom: 10px;">Detected Text {{ loop.index }}:</h3>
+                        {% for line in text['paragraphs'] %}
+                            {% if line != '' %}
+                                <p style="font-size: 10px; color: white; margin-bottom: 8px;">{{ line }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        {% if not loop.last %}
+                            <hr style="border-color: #ddd; margin: 20px 0;">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="glass-panel" style="
+            background: transparent;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+            position: fixed;
+            bottom: 0;
+        ">
+            <div>
+                <a href="/" class="glass-button" rel="noopener noreferrer" style="color: white;">
+                    Home
+                </a>
+            </div>
+            <br>
+            <div>
+                © 2024 Iván Luna. Software Developer.
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <a href="https://ivanluna.dev" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='images/icons/ivanlunadev.png') }}" alt="Ivan Luna Dev" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 25%;" />
+                </a>
+                
+                <a href="https://github.com/imprvhub" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_github-square.png') }}" alt="GitHub" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 25%;" />
+                </a>
+                
+                <a href="https://linkedin.com/in/ivanluna-dev" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ url_for('static', filename='images/icons/Font_Awesome_5_brands_linkedin.png') }}" alt="LinkedIn" style="width: 40px; height: 40px; border-radius: 25%;" />
+                </a>
+            </div>
+        </div>
+</body>
+</html>
+

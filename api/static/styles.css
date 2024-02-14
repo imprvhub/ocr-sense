@@ -1,0 +1,210 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.detected-text {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+form {
+    text-align: center;
+    background-color: transparent; 
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: transparent; 
+    border: 2.5px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+}
+
+
+.glass-panel {
+    color: #fff;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    border-radius: 15px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .glass-button {
+    display: inline-block;
+    padding: 24px 24px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .result-container p {
+    font-size: 14px; 
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+}
+  
+  .glass-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  body {
+    background: linear-gradient(to right, #07c117, #ac00b8); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .glass-panel {
+    max-width: 700px;
+    max-height: 3000px;
+  }
+  
+  .glass-button {
+    margin: 10px;
+    margin-top: 20px;
+  }
+  
+  h2,
+  h2 a {
+    min-height: 120px;
+    width: 10%;
+    max-width: 700px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    padding-top: 60px;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+  }
+
+
+  h2.custom-style,
+  h2.custom-style a {
+    color: black !important; 
+    min-height: 120px;
+    width: 100%;
+    max-width: 700px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    padding-top: 60px;
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+  }
+  
+  p {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+
+.result-container {
+    text-align: center;
+    margin-top: 20px;
+    background-color: transparent; 
+    padding: 15px;
+    border-radius: 12px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+  @media only screen and (max-width: 600px) {
+
+    input {
+        font-size: 10px; 
+    }
+
+    .glass-button {
+        font-size: 10px; 
+    }
+
+    .result-container p {
+        font-size: 10px; 
+    }
+
+    h2,
+    h2 a {
+        font-size: 14px; 
+    }
+}
+    
